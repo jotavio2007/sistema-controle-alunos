@@ -1,28 +1,35 @@
-# Sistema de Controle de Notas de Alunos
+# 🎓 Sistema de Controle de Notas de Alunos
 
-Projeto prático desenvolvido em Python para consolidar os conceitos fundamentais de programação. O sistema funciona via terminal e permite gerenciar o cadastro, a situação individual e a média geral de uma turma através de um menu interativo.
+Projeto desenvolvido em Python para gerenciamento de notas escolares via terminal, evoluindo da manipulação básica de estruturas de dados em memória para um sistema **CRUD completo** com persistência em arquivo JSON e validação de entradas.
 
-## Funcionalidades
+---
 
-- **Cadastrar Aluno:** Registra o nome e a nota do aluno em uma estrutura de dados em memória.
-- **Listar Alunos e Situação:** Exibe todos os alunos cadastrados, suas notas e classifica automaticamente cada um como **Aprovado** (nota $\ge 7.0$) ou **Reprovado** (nota $< 7.0$).
-- **Calcular Média da Turma:** Soma as notas registradas, verifica se há alunos cadastrados para evitar divisão por zero e retorna a média geral da turma.
-- **Menu Interativo:** Permite navegar entre as operações continuamente até que o usuário escolha encerrar o programa.
+## 🚀 Funcionalidades (Versão 2.0)
 
-## Conceitos Aplicados
+* **Cadastrar Aluno (`Create`):** Registra o nome e a nota do aluno em uma lista de dicionários, validando se a nota é um valor numérico entre `0` e `10`.
+* **Listar Alunos (`Read`):** Exibe todos os alunos cadastrados, suas respectivas notas e a situação final (`aprovado` para notas $\ge 7$ ou `reprovado`).
+* **Calcular Média da Turma:** Soma todas as notas registradas e calcula a média geral da turma (tratando o caso de lista vazia para evitar divisão por zero).
+* **Buscar Aluno (`Read`):** Localiza um aluno específico pelo nome (ignorando diferenças entre maiúsculas e minúsculas) e exibe sua nota e situação.
+* **Editar Nota (`Update`):** Permite atualizar a nota de um aluno já cadastrado com a mesma validação de intervalo e tipo numérico.
+* **Excluir Aluno (`Delete`):** Remove o registro de um aluno da lista pelo nome.
+* **Persistência de Dados:** Salva e carrega automaticamente todos os registros no arquivo `alunos.json`, garantindo que os dados não sejam perdidos ao encerrar o programa.
 
-- **Variáveis e Tipos Primitivos:** Manipulação de textos (`str`) e números decimais (`float`).
-- **Entrada, Saída e Conversão de Tipos:** Leitura de dados pelo teclado com `input()`, conversão com `float()` e exibição formatada com `print()`.
-- **Estruturas de Dados:** Armazenamento de múltiplos registros utilizando uma **lista de dicionários** (`list` e `dict`) e adição de elementos com `.append()`.
-- **Controle de Fluxo:** Tomada de decisões com estruturas condicionais (`if`, `elif`, `else`) e operadores de comparação (`>=`, `==`, `!=`).
-- **Laços de Repetição:** Iteração sobre registros com `for` e manutenção do menu interativo com `while`.
-- **Funções e Escopo:** Modularização do código com `def` e retorno de valores processados do escopo local para o global com `return`.
+---
 
-## Como Executar
+## 🛠️ Conceitos Aplicados
 
-1. Certifique-se de ter o **Python 3** instalado em sua máquina.
-2. Baixe o arquivo `controle_alunos.py` deste repositório.
-3. No terminal, navegue até a pasta do arquivo e execute:
+* Estruturas de dados: **Listas** e **Dicionários**[cite: 1, 2].
+* Modularização com **Funções** (`def`, parâmetros, `return` e escopo local/global)[cite: 1, 2].
+* Controle de fluxo com laços (`while`, `for`) e condicionais (`if`, `elif`, `else`)[cite: 1, 2].
+* Tratamento de exceções (`try` / `except ValueError` e `FileNotFoundError`).
+* Serialização de dados com o módulo nativo `json` (`json.dump` e `json.load`).
+* Manipulação de strings com `.lower()` para buscas flexíveis.
 
-```bash
-python controle_alunos.py
+---
+
+## 💻 Como Executar
+
+1. Clone este repositório ou abra-o no **GitHub Codespaces**.
+2. No terminal, execute o arquivo principal:
+   ```bash
+   python sistema.py
